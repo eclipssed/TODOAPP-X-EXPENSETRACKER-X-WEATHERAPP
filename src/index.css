@@ -1,0 +1,32 @@
+@tailwind base;
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #111827;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border-radius: 100vh;
+    border: 3px solid #f97316;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+    border: 3px solid #ea580c;
+  }
+}
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+@tailwind components;
+@tailwind utilities;
