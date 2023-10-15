@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { moon, sun, hamburger, cross } from "../assets/index";
 import Button from "./Button";
@@ -10,19 +10,23 @@ const Header = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const menuRef = useRef(null);
 
-  useEffect(() => {
-    // Add event listener to close menu when clicking outside of it
-    const handleOutsideClick = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowHamburger(true);
-      }
-    };
+  // Add event listener to close menu when clicking outside of it. i wrote this function to handle the click that is outside of the menu section. but it made the other functionlities disabled. if you can fix it then it will be highly appreciated.
 
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleOutsideClick = (event) => {
+  //     if (menuRef.current && menuRef.current.contains(event.target)) {
+  //       setShowHamburger(true);
+  //     }
+  //     else if (menuRef.current && !menuRef.current.contains(event.target)) {
+  //       setShowHamburger(true);
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, []);
 
   const handleTheme = () => {
     if (theme === "light") {
@@ -122,7 +126,9 @@ const Header = () => {
             <button className="md:hidden dark:invert ">
               {showHamburger ? (
                 <img
-                  onClick={() => setShowHamburger(false)}
+                  onClick={() => {
+                    setShowHamburger(false);
+                  }}
                   height={35}
                   width={35}
                   src={hamburger}
@@ -130,7 +136,9 @@ const Header = () => {
                 />
               ) : (
                 <img
-                  onClick={() => setShowHamburger(true)}
+                  onClick={() => {
+                    setShowHamburger(true);
+                  }}
                   height={35}
                   width={35}
                   src={cross}
@@ -140,11 +148,14 @@ const Header = () => {
             </button>
 
             {/* menu section */}
-            <div className="md:hidden" ref={menuRef}>
+            <div ref={menuRef} className="md:hidden">
               {!showHamburger && (
                 <>
                   {" "}
-                  <ul className="flex flex-col fixed w-[200px] dark:bg-gray-900 h-autojustify-center items-center right-[32px] top-[98px] bg-gray-300 px-10 py-8 gap-6 ">
+                  <ul
+                    
+                    className="flex flex-col fixed w-[200px] dark:bg-gray-900 h-auto justify-center items-center right-[32px] top-[98px] bg-gray-300 px-10 py-8 gap-6 "
+                  >
                     <NavLink
                       onClick={() => setShowHamburger(true)}
                       to="/"
