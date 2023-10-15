@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-white fixed w-full dark:bg-gray-900  p-4 py-6 lg:py-8 shadow border-y z-50 bottom-0  ">
+    <footer className="bg-white fixed w-full dark:bg-gray-900  max-w-screen-xl p-4 py-6 lg:py-8 shadow border-y z-50 bottom-0  ">
       <div className="">
-        <div className="flex items-center justify-between max-md:flex-col max-md:gap-2">
+        <div className="flex items-center justify-between max-md:flex-col gap-4">
           <span className="text-sm text-gray-500 sm:text-center dark:text-white">
             © 2023
             <a href="https://hiteshchoudhary.com/" className="hover:underline dark:text-white">
